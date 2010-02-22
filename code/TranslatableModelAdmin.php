@@ -147,7 +147,10 @@ class TranslatableModelAdmin_RecordController extends ModelAdmin_RecordControlle
 				$this->currentRecord->class
 			);
 			$table->setPermissions(array('show'));
-			$table->setCustomSourceItems($this->currentRecord->getTranslations());
+			if(!$sourceItems = $this->currentRecord->getTranslations()){
+				$sourceItems = new DataObjectSet();
+			}
+			$table->setCustomSourceItems($sourceItems);
 			$action->includeDefaultJS = false;
 			if($form->Fields()->hasTabSet()) {
 				$form->Fields()->findOrMakeTab(
