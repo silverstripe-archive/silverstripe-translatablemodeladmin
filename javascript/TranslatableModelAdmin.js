@@ -1,10 +1,11 @@
 (function($) {
 $(document).ready(function() {
 
-	$('#Form_EditForm_createtranslation').livequery('click', function() {
+	$('#Form_EditForm_createtranslation').live('click', function() {
 		var url = $('#Form_EditForm').attr('action') 
 			+ '?action_createtranslation=1'
-			+ '&newlang=' + $('#Form_EditForm_NewTransLang').val();
+			+ '&newlang=' + $('#Form_EditForm_NewTransLang').val()
+			+ '&SecurityID=' + $('#Form_EditForm_SecurityID').val()
 			
 		$('#ModelAdminPanel').fn('loadForm', url);
 		
@@ -13,7 +14,7 @@ $(document).ready(function() {
 
 
 	var _TRANSLATING_LANG = null;
-	$('#LangSelector').livequery('change', function() {
+	$('#LangSelector').change(function() {
 		document.location = SiteTreeHandlers.controller_url + '?locale=' + this.value;
 	});
 })

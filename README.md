@@ -13,7 +13,7 @@ Maintainer Contact
 Requirements
 ------------
 
- * SilverStripe 2.3 or newer
+ * SilverStripe 2.4 or newer
 
 Installation
 ------------
